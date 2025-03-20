@@ -18,6 +18,7 @@ public class ConfirmPage {
   public ConfirmPage(WebDriver driver) {
     this.driver = driver;
     this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    this.wait.until(ExpectedConditions.titleContains("宿泊予約確認"));
     if (this.driver.getTitle() == null || !this.driver.getTitle().startsWith("宿泊予約確認")) {
       throw new IllegalStateException("現在のページが間違っています: " + this.driver.getTitle());
     }

@@ -1,14 +1,21 @@
 package hotel.pages;
 
+import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
 
   private final WebDriver driver;
 
+  private final WebDriverWait wait;
+
   public LoginPage(WebDriver driver) {
     this.driver = driver;
+    this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    this.wait.until(ExpectedConditions.titleContains("ログイン"));
     if (this.driver.getTitle() == null || !this.driver.getTitle().startsWith("ログイン")) {
       throw new IllegalStateException("現在のページが間違っています: " + this.driver.getTitle());
     }
