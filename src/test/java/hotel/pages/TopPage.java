@@ -15,7 +15,7 @@ public class TopPage {
   public TopPage(WebDriver driver) {
     this.driver = driver;
     this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    this.wait.until(ExpectedConditions.titleContains("HOTEL PLANISPHERE - テスト自動化練習サイト"));
+    this.wait.until(ExpectedConditions.titleIs("HOTEL PLANISPHERE - テスト自動化練習サイト"));
     if (this.driver.getTitle() == null || !this.driver.getTitle().equals("HOTEL PLANISPHERE - テスト自動化練習サイト")) {
       throw new IllegalStateException("現在のページが間違っています: " + this.driver.getTitle());
     }
